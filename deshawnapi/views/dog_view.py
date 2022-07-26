@@ -39,30 +39,7 @@ class DogView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    def destroy(self, request, pk):
-
-        dog = Dog.objects.get(pk=pk)
-        dog.delete()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
-
-    # TODO: Look over this custom action
-    # Step 1: Add the action decorator above the method definition
-    # Step 2: Decide which HTTP methods the action will respond to, this one takes PUT requests
-    # Step 3: Decide if the action needs a pk in the url.
-    #         Will this action affect a single object (needs a pk) or multiple (does not need a pk)?
-    @action(methods=['PUT'], detail=True)
-    def signup_to_walk(self, request, pk):
-        # Step 4: Add the code to complete the action
-        #         This action will update the walker on the dog
-        #         Then save that change to the database
-        dog = Dog.objects.get(pk=pk)
-
-        dog.walker = Walker.objects.get(pk=request.data['walker'])
-
-        dog.save()
-
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
-
+    # TODO: Write the method to remove a dog from the database
 
 
 

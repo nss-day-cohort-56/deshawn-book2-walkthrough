@@ -40,13 +40,8 @@ class WalkerView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    def destroy(self, request, pk):
-        walker = Walker.objects.get(pk=pk)
-        walker.delete()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    # TODO: Write the method to remove a walker from the database
 
-    # TODO: Create a custom action that updates the walkers city
-    # Decide what methods it will respond to and if it should be a detail route
 
 
 class WalkerSerializer(serializers.ModelSerializer):

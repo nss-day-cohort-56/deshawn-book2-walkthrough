@@ -50,6 +50,7 @@ class CityView(ViewSet):
         # Step 4: Send a 204 no content response to the client
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+    # TODO: Go over this destroy method
     def destroy(self, request, pk):
         # Step 1: Get the city to be deleted
         city = City.objects.get(pk=pk)
