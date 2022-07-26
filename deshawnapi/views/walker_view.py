@@ -40,8 +40,7 @@ class WalkerView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    # TODO: Write the method to remove a walker from the database
-
+    # TODO: Write the method to update a walker in the database
 
 
 class WalkerSerializer(serializers.ModelSerializer):

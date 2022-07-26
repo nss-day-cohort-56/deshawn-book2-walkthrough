@@ -37,6 +37,7 @@ class CityView(ViewSet):
         # Step 3: Send the serialized data to the client, along with the 201 (created) status
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    # TODO: Walk through this update function
     def update(self, request, pk):
         # Step 1: get the object that will be updated
         city = City.objects.get(pk=pk)
@@ -48,17 +49,6 @@ class CityView(ViewSet):
         city.save()
 
         # Step 4: Send a 204 no content response to the client
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
-
-    # TODO: Go over this destroy method
-    def destroy(self, request, pk):
-        # Step 1: Get the city to be deleted
-        city = City.objects.get(pk=pk)
-
-        # Step 2: use the delete method to remove the city from the database
-        city.delete()
-
-        # Step 3: Send a 204 no content response to the client
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
