@@ -10,5 +10,4 @@ class WalkerView(ViewSet):
 
 
 class WalkerSerializer(serializers.ModelSerializer):
-    # TODO: Fill in the DogSerializer
     pass
