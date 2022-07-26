@@ -1,5 +1,3 @@
-
-from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -52,7 +50,7 @@ class CityView(ViewSet):
         # Step 4: Send a 204 no content response to the client
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    def delete(self, request, pk):
+    def destroy(self, request, pk):
         # Step 1: Get the city to be deleted
         city = City.objects.get(pk=pk)
 

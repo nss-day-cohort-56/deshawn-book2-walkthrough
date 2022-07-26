@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import serializers, status
 from deshawnapi.models import Walker, City
 
@@ -39,9 +40,19 @@ class WalkerView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    def delete(self, request, pk):
+    def destroy(self, request, pk):
         walker = Walker.objects.get(pk=pk)
         walker.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['PUT'], detail=True)
+    def change_cities(self, request, pk):
+        walker = Walker.objects.get(pk=pk)
+
+        walker.city = City.objects.get(pk=request.data['city'])
+
+        walker.save()
+
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 

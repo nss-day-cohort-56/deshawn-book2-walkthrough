@@ -1,6 +1,6 @@
 {
     "python.linting.pylintArgs": [
-        "--load-plugins=pylint_django",
+        "--load-plugins=pylint_django,pylint.extensions.no_self_use",
         "--django-settings-module=deshawnproject.settings",
     ]
 }
