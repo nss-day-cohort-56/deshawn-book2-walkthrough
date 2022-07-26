@@ -30,16 +30,6 @@ class WalkerView(ViewSet):
         serializer = WalkerSerializer(walker)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def update(self, request, pk):
-        walker = Walker.objects.get(pk=pk)
-        walker.name = request.data['name']
-        walker.email = request.data['email']
-        walker.city = City.objects.get(pk=request.data['city'])
-
-        walker.save()
-
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
-
     # TODO: Write the method to update a walker in the database
 
 
