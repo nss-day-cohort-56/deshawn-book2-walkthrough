@@ -45,15 +45,8 @@ class WalkerView(ViewSet):
         walker.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    @action(methods=['PUT'], detail=True)
-    def change_cities(self, request, pk):
-        walker = Walker.objects.get(pk=pk)
-
-        walker.city = City.objects.get(pk=request.data['city'])
-
-        walker.save()
-
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    # TODO: Create a custom action that updates the walkers city
+    # Decide what methods it will respond to and if it should be a detail route
 
 
 class WalkerSerializer(serializers.ModelSerializer):

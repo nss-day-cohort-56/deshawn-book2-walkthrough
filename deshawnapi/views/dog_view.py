@@ -45,6 +45,7 @@ class DogView(ViewSet):
         dog.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+    # TODO: Look over this custom action
     # Step 1: Add the action decorator above the method definition
     # Step 2: Decide which HTTP methods the action will respond to, this one takes PUT requests
     # Step 3: Decide if the action needs a pk in the url.
