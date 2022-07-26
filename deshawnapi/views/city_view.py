@@ -27,6 +27,7 @@ class CityView(ViewSet):
         # Step 3: Send the serialized data to the client
         return Response(serialized.data)
 
+    # TODO: Walk through this create method
     def create(self, request):
         # Step 1: Use the create method to create a new city. Add all the fields needed as arguments
         city = City.objects.create(name=request.data['name'])
@@ -36,20 +37,6 @@ class CityView(ViewSet):
 
         # Step 3: Send the serialized data to the client, along with the 201 (created) status
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    # TODO: Walk through this update function
-    def update(self, request, pk):
-        # Step 1: get the object that will be updated
-        city = City.objects.get(pk=pk)
-
-        # Step 2: Update the fields one by one
-        city.name = request.data['name']
-
-        # Step 3: Save the updates to the database
-        city.save()
-
-        # Step 4: Send a 204 no content response to the client
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class CitySerializer(serializers.ModelSerializer):

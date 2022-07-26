@@ -21,15 +21,7 @@ class DogView(ViewSet):
 
         return Response(serialized.data)
 
-    def create(self, request):
-        dog = Dog.objects.create(
-            name=request.data['name'],
-            walker=Walker.objects.get(pk=request.data['walker'])
-        )
-        serializer = DogSerializer(dog)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    # TODO: Write the method to update a dog in the database
+    # TODO: Write the method to create a dog in the database
 
 
 class DogSerializer(serializers.ModelSerializer):
