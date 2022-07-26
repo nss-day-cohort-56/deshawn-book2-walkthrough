@@ -5,32 +5,18 @@ from deshawnapi.models import City
 
 
 class CityView(ViewSet):
-
-    def retrieve(self, request, pk=None):
-
-        # Step 1: Get a single city based on the primary key in the request URL
-        city = City.objects.get(pk=pk)
-
-        # Step 2: Serialize the city record as JSON
-        serialized = CitySerializer(city)
-
-        # Step 3: Send JSON response to client with 200 status code
-        return Response(serialized.data)
-
-    def list(self, request):
-        # Step 1: Get all city data from the database
-        cities = City.objects.all()
-
-        # Step 2: Serialize the data with to send only the fields the client wants
-        serialized = CitySerializer(cities, many=True)
-
-        # Step 3: Send the serialized data to the client
-        return Response(serialized.data)
+    pass
 
 
-
+# TODO: Walk through the serializer
+# Step 1: Create a serializer class, it should inherit from the ModelSerializer
 class CitySerializer(serializers.ModelSerializer):
 
+    # Step 2: add a Meta class nested inside the serializer
+    # This will contain any configuration settings for the serializer
     class Meta:
+        # Step 3: Add a model property and set it equal to the model class for the serializer
         model = City
-        fields = ('id', 'name',)
+        # Step 4: Add the fields property.
+        # It should be a tuple or list of the model's fields that will be returned to the client
+        fields = ('id', 'name')

@@ -6,12 +6,9 @@ from deshawnapi.models import Walker, City
 
 
 class WalkerView(ViewSet):
-    # TODO: Write the list and retrieve methods for the walker view
     pass
 
 
 class WalkerSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Walker
-        fields = ('id', 'name', 'email', 'city', )
+    # TODO: Fill in the DogSerializer
+    pass
