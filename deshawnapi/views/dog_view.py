@@ -10,5 +10,4 @@ class DogView(ViewSet):
 
 
 class DogSerializer(serializers.ModelSerializer):
-    # TODO: Fill in the DogSerializer
     pass
